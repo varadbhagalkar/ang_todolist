@@ -1,17 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser")
+const mongoose=require("mongoose")
 const date=require(__dirname+"/date.js")
 
 const app = express();
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
-
-var items = ["Buy Food", "Cook Food", "Eat Food"]
-var workItems = []
-
-
-
 app.set('view engine', 'ejs')
+
+
+
+
+
+
 
 app.get("/", function (req, res) {
     var day=date()
