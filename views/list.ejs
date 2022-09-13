@@ -7,16 +7,18 @@
     <div class="box">
         <ul>
             <% for (item of newListItems){%>
-                <div class="item">
-                    <input type="checkbox">
-                    <p><%= item %></p>
-                </div>
-                
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" value="<%= item._id %> " name="checkbox" onChange="this.form.submit()">
+                        <p><%= item.name %></p>
+                    </div>
+                    <input type="hidden" name="listName" value="<%= listTitle %>">
+                </form>
             <% } %>
         </ul>
         <form action="/" method="post">
             <input type="text" placeholder="Enter item to be added" name="newValue" autocomplete="off">
-            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+            <button type="submit" name="list" value="<%=listTitle%>">+</button>
         </form>
     </div>
-    <%- include ('footer'); -%> 
+    <%- include ('footer'); -%>
